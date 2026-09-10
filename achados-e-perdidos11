@@ -1,0 +1,474 @@
+# ==========================================================
+# FUNÇÃO PARA CADASTRAR UM OBJETO
+# ==========================================================
+def cadastrar_item(itens):
+    # Mostra o título da tela de cadastro.
+    print("\n--- CADASTRO DE OBJETO ---")
+
+    # Solicita os dados do objeto.
+    nome = input("Nome do objeto: ")
+    descricao = input("Descrição do objeto: ")# ==========================================================
+# FUNÇÃO PARA CADASTRAR UM OBJETO
+# ==========================================================
+def cadastrar_item(itens):
+    # Mostra o título da tela de cadastro.
+    print("\n--- CADASTRO DE OBJETO ---")
+
+    # Solicita os dados do objeto.
+    nome = input("Nome do objeto: ")
+    descricao = input("Descrição do objeto: ")
+    local = input("Local onde foi encontrado: ")
+    data = input("Data do registro (dd/mm/aaaa): ")
+
+    # Verifica se o nome ficou vazio.
+    if nome.strip() == "":
+        print("\nO nome do objeto não pode ficar vazio.")
+        return
+
+    # Verifica se a descrição ficou vazia.
+    if descricao.strip() == "":
+        print("\nA descrição não pode ficar vazia.")
+        return
+
+    # Verifica se o local ficou vazio.
+    if local.strip() == "":
+        print("\nO local não pode ficar vazio.")
+        return
+
+    # Verifica se a data ficou vazia.
+    if data.strip() == "":
+        print("\nA data não pode ficar vazia.")
+        return
+
+    # Cria um dicionário com os dados do objeto.
+    item = {
+        "nome": nome,
+        "descricao": descricao,
+        "local": local,
+        "data": data
+    }
+
+    # Adiciona o dicionário à lista de objetos.
+    itens.append(item)
+
+    # Informa que o cadastro foi realizado.
+    print("\nObjeto cadastrado com sucesso!")
+
+
+# ==========================================================
+# FUNÇÃO PARA LISTAR OS OBJETOS
+# ==========================================================
+def listar_itens(itens):
+    print("\n--- OBJETOS CADASTRADOS ---")
+
+    # Verifica se não existem objetos cadastrados.
+    if len(itens) == 0:
+        print("Nenhum objeto cadastrado.")
+        return
+
+    # Percorre a lista mostrando cada objeto.
+    for i, item in enumerate(itens):
+        print(f"\nObjeto {i + 1}")
+        print(f"Nome: {item['nome']}")
+        print(f"Descrição: {item['descricao']}")
+        print(f"Local: {item['local']}")
+        print(f"Data: {item['data']}")
+
+
+# ==========================================================
+# FUNÇÃO PARA EXCLUIR UM OBJETO
+# ==========================================================
+def excluir_item(itens):
+    print("\n--- EXCLUIR OBJETO ---")
+
+    # Verifica se existem objetos cadastrados.
+    if len(itens) == 0:
+        print("Nenhum objeto cadastrado.")
+        return
+
+    # Mostra os objetos para o usuário escolher.
+    for i, item in enumerate(itens):
+        print(f"{i + 1} - {item['nome']}")
+
+    # Recebe o número do objeto que será excluído.
+    opcao = input("\nDigite o número do objeto que deseja excluir: ")
+
+    # Verifica se foi digitado um número.
+    if not opcao.isdigit():
+        print("\nDigite apenas um número.")
+        return
+
+    numero = int(opcao)
+
+    # Verifica se o número corresponde a um objeto.
+    if numero < 1 or numero > len(itens):
+        print("\nObjeto não encontrado.")
+        return
+
+    # Remove o objeto da lista.
+    item_removido = itens.pop(numero - 1)
+
+    print(f"\nO objeto '{item_removido['nome']}' foi excluído com sucesso!")
+
+
+# ==========================================================
+# FUNÇÃO PARA MOSTRAR O MENU
+# ==========================================================
+def mostrar_menu():
+    print("\n================================")
+    print(" ACHADOS E PERDIDOS DA ESCOLA")
+    print("================================")
+    print("1 - Cadastrar objeto")
+    print("2 - Listar objetos")
+    print("3 - Excluir objeto")
+    print("4 - Sair")
+
+
+# ==========================================================
+# FUNÇÃO PRINCIPAL
+# ==========================================================
+def main():
+    # Cria uma lista vazia para armazenar os objetos.
+    itens = []
+
+    # Mantém o sistema funcionando continuamente.
+    while True:
+        # Mostra o menu.
+        mostrar_menu()
+
+        # Recebe a opção digitada.
+        opcao = input("\nEscolha uma opção: ")
+
+        # Abre o cadastro.
+        if opcao == "1":
+            cadastrar_item(itens)
+
+        # Lista os objetos.
+        elif opcao == "2":
+            listar_itens(itens)
+
+        # Exclui um objeto.
+        elif opcao == "3":
+            excluir_item(itens)
+
+        # Encerra o programa.
+        elif opcao == "4":
+            print("\nPrograma encerrado.")
+            break
+
+        # Trata uma opção inexistente.
+        else:
+            print("\nOpção inválida. Digite 1, 2, 3 ou 4.")
+
+
+# ==========================================================
+# INÍCIO DO PROGRAMA
+# ==========================================================
+main()
+# ==========================================================
+# FUNÇÃO PARA CADASTRAR UM OBJETO
+# ==========================================================
+def cadastrar_item(itens):
+    # Mostra o título da tela de cadastro.
+    print("\n--- CADASTRO DE OBJETO ---")
+
+    # Solicita os dados do objeto.
+    nome = input("Nome do objeto: ")
+    descricao = input("Descrição do objeto: ")
+    local = input("Local onde foi encontrado: ")
+    data = input("Data do registro (dd/mm/aaaa): ")
+
+    # Verifica se o nome ficou vazio.
+    if nome.strip() == "":
+        print("\nO nome do objeto não pode ficar vazio.")
+        return
+
+    # Verifica se a descrição ficou vazia.
+    if descricao.strip() == "":
+        print("\nA descrição não pode ficar vazia.")
+        return
+
+    # Verifica se o local ficou vazio.
+    if local.strip() == "":
+        print("\nO local não pode ficar vazio.")
+        return
+
+    # Verifica se a data ficou vazia.
+    if data.strip() == "":
+        print("\nA data não pode ficar vazia.")
+        return
+
+    # Cria um dicionário com os dados do objeto.
+    item = {
+        "nome": nome,
+        "descricao": descricao,
+        "local": local,
+        "data": data
+    }
+
+    # Adiciona o dicionário à lista de objetos.
+    itens.append(item)
+
+    # Informa que o cadastro foi realizado.
+    print("\nObjeto cadastrado com sucesso!")
+
+
+# ==========================================================
+# FUNÇÃO PARA LISTAR OS OBJETOS
+# ==========================================================
+def listar_itens(itens):
+    print("\n--- OBJETOS CADASTRADOS ---")
+
+    # Verifica se não existem objetos cadastrados.
+    if len(itens) == 0:
+        print("Nenhum objeto cadastrado.")
+        return
+
+    # Percorre a lista mostrando cada objeto.
+    for i, item in enumerate(itens):
+        print(f"\nObjeto {i + 1}")
+        print(f"Nome: {item['nome']}")
+        print(f"Descrição: {item['descricao']}")
+        print(f"Local: {item['local']}")
+        print(f"Data: {item['data']}")
+
+
+# ==========================================================
+# FUNÇÃO PARA EXCLUIR UM OBJETO
+# ==========================================================
+def excluir_item(itens):
+    print("\n--- EXCLUIR OBJETO ---")
+
+    # Verifica se existem objetos cadastrados.
+    if len(itens) == 0:
+        print("Nenhum objeto cadastrado.")
+        return
+
+    # Mostra os objetos para o usuário escolher.
+    for i, item in enumerate(itens):
+        print(f"{i + 1} - {item['nome']}")
+
+    # Recebe o número do objeto que será excluído.
+    opcao = input("\nDigite o número do objeto que deseja excluir: ")
+
+    # Verifica se foi digitado um número.
+    if not opcao.isdigit():
+        print("\nDigite apenas um número.")
+        return
+
+    numero = int(opcao)
+
+    # Verifica se o número corresponde a um objeto.
+    if numero < 1 or numero > len(itens):
+        print("\nObjeto não encontrado.")
+        return
+
+    # Remove o objeto da lista.
+    item_removido = itens.pop(numero - 1)
+
+    print(f"\nO objeto '{item_removido['nome']}' foi excluído com sucesso!")
+
+
+# ==========================================================
+# FUNÇÃO PARA MOSTRAR O MENU
+# ==========================================================
+def mostrar_menu():
+    print("\n================================")
+    print(" ACHADOS E PERDIDOS DA ESCOLA")
+    print("================================")
+    print("1 - Cadastrar objeto")
+    print("2 - Listar objetos")
+    print("3 - Excluir objeto")
+    print("4 - Sair")
+
+
+# ==========================================================
+# FUNÇÃO PRINCIPAL
+# ==========================================================
+def main():
+    # Cria uma lista vazia para armazenar os objetos.
+    itens = []
+
+    # Mantém o sistema funcionando continuamente.
+    while True:
+        # Mostra o menu.
+        mostrar_menu()
+
+        # Recebe a opção digitada.
+        opcao = input("\nEscolha uma opção: ")
+
+        # Abre o cadastro.
+        if opcao == "1":
+            cadastrar_item(itens)
+
+        # Lista os objetos.
+        elif opcao == "2":
+            listar_itens(itens)
+
+        # Exclui um objeto.
+        elif opcao == "3":
+            excluir_item(itens)
+
+        # Encerra o programa.
+        elif opcao == "4":
+            print("\nPrograma encerrado.")
+            break
+
+        # Trata uma opção inexistente.
+        else:
+            print("\nOpção inválida. Digite 1, 2, 3 ou 4.")
+
+
+# ==========================================================
+# INÍCIO DO PROGRAMA
+# ==========================================================
+main()
+
+    local = input("Local onde foi encontrado: ")
+    data = input("Data do registro (dd/mm/aaaa): ")
+
+    # Verifica se o nome ficou vazio.
+    if nome.strip() == "":
+        print("\nO nome do objeto não pode ficar vazio.")
+        return
+
+    # Verifica se a descrição ficou vazia.
+    if descricao.strip() == "":
+        print("\nA descrição não pode ficar vazia.")
+        return
+
+    # Verifica se o local ficou vazio.
+    if local.strip() == "":
+        print("\nO local não pode ficar vazio.")
+        return
+
+    # Verifica se a data ficou vazia.
+    if data.strip() == "":
+        print("\nA data não pode ficar vazia.")
+        return
+
+    # Cria um dicionário com os dados do objeto.
+    item = {
+        "nome": nome,
+        "descricao": descricao,
+        "local": local,
+        "data": data
+    }
+
+    # Adiciona o dicionário à lista de objetos.
+    itens.append(item)
+
+    # Informa que o cadastro foi realizado.
+    print("\nObjeto cadastrado com sucesso!")
+
+
+# ==========================================================
+# FUNÇÃO PARA LISTAR OS OBJETOS
+# ==========================================================
+def listar_itens(itens):
+    print("\n--- OBJETOS CADASTRADOS ---")
+
+    # Verifica se não existem objetos cadastrados.
+    if len(itens) == 0:
+        print("Nenhum objeto cadastrado.")
+        return
+
+    # Percorre a lista mostrando cada objeto.
+    for i, item in enumerate(itens):
+        print(f"\nObjeto {i + 1}")
+        print(f"Nome: {item['nome']}")
+        print(f"Descrição: {item['descricao']}")
+        print(f"Local: {item['local']}")
+        print(f"Data: {item['data']}")
+
+
+# ==========================================================
+# FUNÇÃO PARA EXCLUIR UM OBJETO
+# ==========================================================
+def excluir_item(itens):
+    print("\n--- EXCLUIR OBJETO ---")
+
+    # Verifica se existem objetos cadastrados.
+    if len(itens) == 0:
+        print("Nenhum objeto cadastrado.")
+        return
+
+    # Mostra os objetos para o usuário escolher.
+    for i, item in enumerate(itens):
+        print(f"{i + 1} - {item['nome']}")
+
+    # Recebe o número do objeto que será excluído.
+    opcao = input("\nDigite o número do objeto que deseja excluir: ")
+
+    # Verifica se foi digitado um número.
+    if not opcao.isdigit():
+        print("\nDigite apenas um número.")
+        return
+
+    numero = int(opcao)
+
+    # Verifica se o número corresponde a um objeto.
+    if numero < 1 or numero > len(itens):
+        print("\nObjeto não encontrado.")
+        return
+
+    # Remove o objeto da lista.
+    item_removido = itens.pop(numero - 1)
+
+    print(f"\nO objeto '{item_removido['nome']}' foi excluído com sucesso!")
+
+
+# ==========================================================
+# FUNÇÃO PARA MOSTRAR O MENU
+# ==========================================================
+def mostrar_menu():
+    print("\n================================")
+    print(" ACHADOS E PERDIDOS DA ESCOLA")
+    print("================================")
+    print("1 - Cadastrar objeto")
+    print("2 - Listar objetos")
+    print("3 - Excluir objeto")
+    print("4 - Sair")
+
+
+# ==========================================================
+# FUNÇÃO PRINCIPAL
+# ==========================================================
+def main():
+    # Cria uma lista vazia para armazenar os objetos.
+    itens = []
+
+    # Mantém o sistema funcionando continuamente.
+    while True:
+        # Mostra o menu.
+        mostrar_menu()
+
+        # Recebe a opção digitada.
+        opcao = input("\nEscolha uma opção: ")
+
+        # Abre o cadastro.
+        if opcao == "1":
+            cadastrar_item(itens)
+
+        # Lista os objetos.
+        elif opcao == "2":
+            listar_itens(itens)
+
+        # Exclui um objeto.
+        elif opcao == "3":
+            excluir_item(itens)
+
+        # Encerra o programa.
+        elif opcao == "4":
+            print("\nPrograma encerrado.")
+            break
+
+        # Trata uma opção inexistente.
+        else:
+            print("\nOpção inválida. Digite 1, 2, 3 ou 4.")
+
+
+# ==========================================================
+# INÍCIO DO PROGRAMA
+# ==========================================================
+main()
